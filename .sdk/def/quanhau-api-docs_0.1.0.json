@@ -1,0 +1,95 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "QuanHau API Docs",
+    "description": "This API documentation serves as a comprehensive guide for developers to understand and integrate with the services offered by QuanHau, a fullstack web developer. It includes detailed endpoints, request and response formats, and examples to facilitate ease of use for backend applications.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Tran Quan Hau (QuanHau/Herlys)",
+      "email": "haudepzai2010@gmail.com",
+      "url": "https://keyherlyswar.x10.mx/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://keyherlyswar.x10.mx",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api": {
+      "get": {
+        "summary": "Get API information",
+        "description": "Retrieves general information about the QuanHau API services",
+        "operationId": "getApiInfo",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "API is operational"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "developer": {
+                          "type": "string",
+                          "example": "QuanHau (Herlys)"
+                        },
+                        "version": {
+                          "type": "string",
+                          "example": "1.0.0"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "error"
+          },
+          "message": {
+            "type": "string",
+            "example": "An error occurred"
+          },
+          "code": {
+            "type": "integer",
+            "example": 500
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

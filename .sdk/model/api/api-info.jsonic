@@ -1,0 +1,25 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: "haudepzai2010@gmail.com"
+        name: "Tran Quan Hau (QuanHau/Herlys)"
+        url: "https://keyherlyswar.x10.mx/"
+      }
+      description: "This API documentation serves as a comprehensive guide for developers to understand and integrate with the services offered by QuanHau, a fullstack web developer. It includes detailed endpoints, request and response formats, and examples to facilitate ease of use for backend applications."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://keyherlyswar.x10.mx"
+        }
+      ]
+      title: "QuanHau API Docs"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
