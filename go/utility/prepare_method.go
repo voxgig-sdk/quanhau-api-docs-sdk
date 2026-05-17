@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/quanhau-api-docs-sdk/core"
+import "github.com/voxgig-sdk/quanhau-api-docs-sdk/go/core"
 
 func prepareMethodUtil(ctx *core.Context) string {
 	opname := ctx.Op.Name

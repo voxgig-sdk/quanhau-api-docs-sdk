@@ -12,9 +12,9 @@ import (
 	"sync"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/quanhau-api-docs-sdk"
+	sdk "github.com/voxgig-sdk/quanhau-api-docs-sdk/go"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/quanhau-api-docs-sdk/go/utility/struct"
 )
 
 var envLocalOnce sync.Once

@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/quanhau-api-docs-sdk"
-	"github.com/voxgig-sdk/quanhau-api-docs-sdk/core"
+	sdk "github.com/voxgig-sdk/quanhau-api-docs-sdk/go"
+	"github.com/voxgig-sdk/quanhau-api-docs-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/quanhau-api-docs-sdk/go/utility/struct"
 )
 
 func TestApiEntity(t *testing.T) {

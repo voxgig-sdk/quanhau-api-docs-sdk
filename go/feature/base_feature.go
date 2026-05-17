@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/quanhau-api-docs-sdk/core"
+	"github.com/voxgig-sdk/quanhau-api-docs-sdk/go/core"
 )
 
 type BaseFeature struct {

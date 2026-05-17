@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/quanhau-api-docs-sdk"
-	"github.com/voxgig-sdk/quanhau-api-docs-sdk/core"
+	sdk "github.com/voxgig-sdk/quanhau-api-docs-sdk/go"
+	"github.com/voxgig-sdk/quanhau-api-docs-sdk/go/core"
 )
 
 func TestApiDirect(t *testing.T) {

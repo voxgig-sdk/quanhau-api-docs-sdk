@@ -1,10 +1,10 @@
 package voxgigquanhauapidocssdk
 
 import (
-	"github.com/voxgig-sdk/quanhau-api-docs-sdk/core"
-	"github.com/voxgig-sdk/quanhau-api-docs-sdk/entity"
-	"github.com/voxgig-sdk/quanhau-api-docs-sdk/feature"
-	_ "github.com/voxgig-sdk/quanhau-api-docs-sdk/utility"
+	"github.com/voxgig-sdk/quanhau-api-docs-sdk/go/core"
+	"github.com/voxgig-sdk/quanhau-api-docs-sdk/go/entity"
+	"github.com/voxgig-sdk/quanhau-api-docs-sdk/go/feature"
+	_ "github.com/voxgig-sdk/quanhau-api-docs-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
