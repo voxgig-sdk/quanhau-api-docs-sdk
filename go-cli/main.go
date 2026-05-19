@@ -11,8 +11,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/aql-lang/aql/eng"
-	"github.com/aql-lang/aql/eng/parser"
+	eng "github.com/aql-lang/aql/eng/go"
+	"github.com/aql-lang/aql/eng/go/parser"
 	sdk "github.com/voxgig-sdk/quanhau-api-docs-sdk/go"
 )
 
