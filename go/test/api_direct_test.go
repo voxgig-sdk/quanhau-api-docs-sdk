@@ -99,14 +99,12 @@ func apiDirectSetup(mockres any) *apiDirectSetupResult {
 	env := envOverride(map[string]any{
 		"QUANHAUAPIDOCS_TEST_API_ENTID": map[string]any{},
 		"QUANHAUAPIDOCS_TEST_LIVE":    "FALSE",
-		"QUANHAUAPIDOCS_APIKEY":       "NONE",
 	})
 
 	live := env["QUANHAUAPIDOCS_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["QUANHAUAPIDOCS_APIKEY"],
 		}
 		client := sdk.NewQuanhauApiDocsSDK(mergedOpts)
 

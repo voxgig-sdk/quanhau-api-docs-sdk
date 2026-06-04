@@ -28,16 +28,13 @@ package main
 
 import (
     "fmt"
-    "os"
 
     sdk "github.com/voxgig-sdk/quanhau-api-docs-sdk/go"
     "github.com/voxgig-sdk/quanhau-api-docs-sdk/go/core"
 )
 
 func main() {
-    client := sdk.NewQuanhauApiDocsSDK(map[string]any{
-        "apikey": os.Getenv("QUANHAU-API-DOCS_APIKEY"),
-    })
+    client := sdk.NewQuanhauApiDocsSDK(map[string]any{})
 ```
 
 ### 3. Load a api
@@ -140,7 +137,6 @@ Create a `.env.local` file at the project root:
 
 ```
 QUANHAU-API-DOCS_TEST_LIVE=TRUE
-QUANHAU-API-DOCS_APIKEY=<your-key>
 ```
 
 Then run:
@@ -162,7 +158,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `"apikey"` | `string` | API key for authentication. |
 | `"base"` | `string` | Base URL of the API server. |
 | `"prefix"` | `string` | URL path prefix prepended to all requests. |
 | `"suffix"` | `string` | URL path suffix appended to all requests. |

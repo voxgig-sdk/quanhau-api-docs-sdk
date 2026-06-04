@@ -59,14 +59,12 @@ def _api_direct_setup(mockres):
     env = runner.env_override({
         "QUANHAUAPIDOCS_TEST_API_ENTID": {},
         "QUANHAUAPIDOCS_TEST_LIVE": "FALSE",
-        "QUANHAUAPIDOCS_APIKEY": "NONE",
     })
 
     live = env.get("QUANHAUAPIDOCS_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("QUANHAUAPIDOCS_APIKEY"),
         }
         client = QuanhauApiDocsSDK(merged_opts)
         return {

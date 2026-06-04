@@ -18,7 +18,15 @@
           }
         ],
         "title": "QuanHau API Docs",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Look up a Facebook user's profile picture by Facebook ID via a single GET endpoint",
+        "homepage": "https://keyherlyswar.x10.mx",
+        "docs_url": "https://freepublicapis.com/quanhau-api-docs",
+        "about_md": "QuanHau API Docs is a small personal API published by QuanHau, a fullstack web developer, on the host `keyherlyswar.x10.mx`. The service is catalogued on [Free Public APIs](https://freepublicapis.com/quanhau-api-docs).\n\nWhat you get from the API:\n\n- A single `GET` endpoint, `/Apidocs/avtfb.php?uid={facebookId}`, that returns a Facebook profile picture for a given Facebook user ID.\n\nOperational notes: the API is unauthenticated and CORS is disabled. No rate limits are documented. At the time of cataloguing the endpoint was reported as non-functional by the upstream catalogue, so callers should be prepared for errors and treat the service as best-effort.",
+        "entity_desc": {
+          "api": "Wraps the single profile-picture lookup endpoint exposed by the service at `/Apidocs/avtfb.php?uid={facebookId}`."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -26,7 +34,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "api": {

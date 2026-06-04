@@ -1,9 +1,94 @@
 # QuanhauApiDocs SDK
 
+Look up a Facebook user's profile picture by Facebook ID via a single GET endpoint
 
+> TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
-Available for [Golang](go/) and [Go CLI](go-cli/) and [Go MCP server](go-mcp/) and [Lua](lua/) and [PHP](php/) and [Python](py/) and [Ruby](rb/) and [TypeScript](ts/).
+## About QuanHau API Docs
 
+QuanHau API Docs is a small personal API published by QuanHau, a fullstack web developer, on the host `keyherlyswar.x10.mx`. The service is catalogued on [Free Public APIs](https://freepublicapis.com/quanhau-api-docs).
+
+What you get from the API:
+
+- A single `GET` endpoint, `/Apidocs/avtfb.php?uid={facebookId}`, that returns a Facebook profile picture for a given Facebook user ID.
+
+Operational notes: the API is unauthenticated and CORS is disabled. No rate limits are documented. At the time of cataloguing the endpoint was reported as non-functional by the upstream catalogue, so callers should be prepared for errors and treat the service as best-effort.
+
+## Try it
+
+**TypeScript**
+```bash
+npm install quanhau-api-docs
+```
+
+**Python**
+```bash
+pip install quanhau-api-docs-sdk
+```
+
+**PHP**
+```bash
+composer require voxgig/quanhau-api-docs-sdk
+```
+
+**Golang**
+```bash
+go get github.com/voxgig-sdk/quanhau-api-docs-sdk/go
+```
+
+**Ruby**
+```bash
+gem install quanhau-api-docs-sdk
+```
+
+**Lua**
+```bash
+luarocks install quanhau-api-docs-sdk
+```
+
+## 30-second quickstart
+
+### TypeScript
+
+```ts
+import { QuanhauApiDocsSDK } from 'quanhau-api-docs'
+
+const client = new QuanhauApiDocsSDK({})
+
+```
+
+See the [TypeScript README](ts/README.md) for the
+full guide, or scroll down for the same example in other languages.
+
+## What's in the box
+
+| Surface | Use it for | Path |
+| --- | --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
+| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+
+## Use it from an AI agent (MCP)
+
+The generated MCP server exposes every operation in this SDK as an
+[MCP](https://modelcontextprotocol.io) tool that Claude, Cursor or Cline
+can call directly. Build and register it:
+
+```bash
+cd go-mcp && go build -o quanhau-api-docs-mcp .
+```
+
+Then add it to your agent's MCP config (Claude Desktop, Cursor, etc.):
+
+```json
+{
+  "mcpServers": {
+    "quanhau-api-docs": {
+      "command": "/abs/path/to/quanhau-api-docs-mcp"
+    }
+  }
+}
+```
 
 ## Entities
 
@@ -11,75 +96,24 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Api** |  | `/api` |
+| **Api** | Wraps the single profile-picture lookup endpoint exposed by the service at `/Apidocs/avtfb.php?uid={facebookId}`. | `/api` |
 
-Each entity supports the following operations where available: **load**, **list**, **create**,
-**update**, and **remove**.
+Each entity supports the following operations where available: **load**,
+**list**, **create**, **update**, and **remove**.
 
+## Quickstart in other languages
 
-## Architecture
+### Python
 
-### Entity-operation model
+```python
+from quanhauapidocs_sdk import QuanhauApiDocsSDK
 
-Every SDK call follows the same pipeline:
-
-1. **Point** — resolve the API endpoint from the operation definition.
-2. **Spec** — build the HTTP specification (URL, method, headers, body).
-3. **Request** — send the HTTP request.
-4. **Response** — receive and parse the response.
-5. **Result** — extract the result data for the caller.
-
-At each stage a feature hook fires (e.g. `PrePoint`, `PreSpec`,
-`PreRequest`), allowing features to inspect or modify the pipeline.
-
-### Features
-
-Features are hook-based middleware that extend SDK behaviour.
-
-| Feature | Purpose |
-| --- | --- |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-
-You can add custom features by passing them in the `extend` option at
-construction time.
-
-### Direct and Prepare
-
-For endpoints not covered by the entity model, use the low-level methods:
-
-- **`direct(fetchargs)`** — build and send an HTTP request in one step.
-- **`prepare(fetchargs)`** — build the request without sending it.
-
-Both accept a map with `path`, `method`, `params`, `query`, `headers`,
-and `body`.
+client = QuanhauApiDocsSDK({})
 
 
-## Quick start
-
-### Golang
-
-```go
-import sdk "github.com/voxgig-sdk/quanhau-api-docs-sdk/go"
-
-client := sdk.NewQuanhauApiDocsSDK(map[string]any{
-    "apikey": os.Getenv("QUANHAU-API-DOCS_APIKEY"),
-})
-
-```
-
-### Lua
-
-```lua
-local sdk = require("quanhau-api-docs_sdk")
-
-local client = sdk.new({
-  apikey = os.getenv("QUANHAU-API-DOCS_APIKEY"),
-})
-
-
--- Load a specific api
-local api, err = client:Api(nil):load(
-  { id = "example_id" }, nil
+# Load a specific api
+api, err = client.Api(None).load(
+    {"id": "example_id"}, None
 )
 ```
 
@@ -89,9 +123,7 @@ local api, err = client:Api(nil):load(
 <?php
 require_once 'quanhauapidocs_sdk.php';
 
-$client = new QuanhauApiDocsSDK([
-    "apikey" => getenv("QUANHAU-API-DOCS_APIKEY"),
-]);
+$client = new QuanhauApiDocsSDK([]);
 
 
 // Load a specific api
@@ -100,21 +132,13 @@ $client = new QuanhauApiDocsSDK([
 );
 ```
 
-### Python
+### Golang
 
-```python
-import os
-from quanhauapidocs_sdk import QuanhauApiDocsSDK
+```go
+import sdk "github.com/voxgig-sdk/quanhau-api-docs-sdk/go"
 
-client = QuanhauApiDocsSDK({
-    "apikey": os.environ.get("QUANHAU-API-DOCS_APIKEY"),
-})
+client := sdk.NewQuanhauApiDocsSDK(map[string]any{})
 
-
-# Load a specific api
-api, err = client.Api(None).load(
-    {"id": "example_id"}, None
-)
 ```
 
 ### Ruby
@@ -122,9 +146,7 @@ api, err = client.Api(None).load(
 ```ruby
 require_relative "QuanhauApiDocs_sdk"
 
-client = QuanhauApiDocsSDK.new({
-  "apikey" => ENV["QUANHAU-API-DOCS_APIKEY"],
-})
+client = QuanhauApiDocsSDK.new({})
 
 
 # Load a specific api
@@ -133,38 +155,39 @@ api, err = client.Api(nil).load(
 )
 ```
 
-### TypeScript
-
-```ts
-import { QuanhauApiDocsSDK } from 'quanhau-api-docs'
-
-const client = new QuanhauApiDocsSDK({
-  apikey: process.env.QUANHAU-API-DOCS_APIKEY,
-})
-
-```
-
-
-## Testing
-
-Both SDKs provide a test mode that replaces the HTTP transport with an
-in-memory mock, so tests run without a network connection.
-
-### Golang
-
-```go
-client := sdk.TestSDK(nil, nil)
-result, err := client.Api(nil).Load(
-    map[string]any{"id": "test01"}, nil,
-)
-```
-
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Api(nil):load(
-  { id = "test01" }, nil
+local sdk = require("quanhau-api-docs_sdk")
+
+local client = sdk.new({})
+
+
+-- Load a specific api
+local api, err = client:Api(nil):load(
+  { id = "example_id" }, nil
+)
+```
+
+## Unit testing in offline mode
+
+Every SDK ships a test mode that swaps the HTTP transport for an
+in-memory mock, so unit tests run offline.
+
+### TypeScript
+
+```ts
+const client = QuanhauApiDocsSDK.test()
+const result = await client.Api().load({ id: 'test01' })
+// result.ok === true, result.data contains mock data
+```
+
+### Python
+
+```python
+client = QuanhauApiDocsSDK.test(None, None)
+result, err = client.Api(None).load(
+    {"id": "test01"}, None
 )
 ```
 
@@ -177,12 +200,12 @@ $client = QuanhauApiDocsSDK::test(null, null);
 );
 ```
 
-### Python
+### Golang
 
-```python
-client = QuanhauApiDocsSDK.test(None, None)
-result, err = client.Api(None).load(
-    {"id": "test01"}, None
+```go
+client := sdk.TestSDK(nil, nil)
+result, err := client.Api(nil).Load(
+    map[string]any{"id": "test01"}, nil,
 )
 ```
 
@@ -195,14 +218,46 @@ result, err = client.Api(nil).load(
 )
 ```
 
-### TypeScript
+### Lua
 
-```ts
-const client = QuanhauApiDocsSDK.test()
-const result = await client.Api().load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+```lua
+local client = sdk.test(nil, nil)
+local result, err = client:Api(nil):load(
+  { id = "test01" }, nil
+)
 ```
 
+## How it works
+
+Every SDK call runs the same five-stage pipeline:
+
+1. **Point** — resolve the API endpoint from the operation definition.
+2. **Spec** — build the HTTP specification (URL, method, headers, body).
+3. **Request** — send the HTTP request.
+4. **Response** — receive and parse the response.
+5. **Result** — extract the result data for the caller.
+
+A feature hook fires at each stage (e.g. `PrePoint`, `PreSpec`,
+`PreRequest`), so features can inspect or modify the pipeline without
+forking the SDK.
+
+### Features
+
+| Feature | Purpose |
+| --- | --- |
+| **TestFeature** | In-memory mock transport for testing without a live server |
+
+Pass custom features via the `extend` option at construction time.
+
+### Direct and Prepare
+
+For endpoints the entity model doesn't cover, use the low-level methods:
+
+- **`direct(fetchargs)`** — build and send an HTTP request in one step.
+- **`prepare(fetchargs)`** — build the request without sending it.
+
+Both accept a map with `path`, `method`, `params`, `query`,
+`headers`, and `body`. See the [How-to guides](#how-to-guides) below.
 
 ## How-to guides
 
@@ -210,21 +265,22 @@ const result = await client.Api().load({ id: 'test01' })
 
 When the entity interface does not cover an endpoint, use `direct`:
 
-**Go:**
-```go
-result, err := client.Direct(map[string]any{
-    "path":   "/api/resource/{id}",
-    "method": "GET",
-    "params": map[string]any{"id": "example"},
+**TypeScript:**
+```ts
+const result = await client.direct({
+  path: '/api/resource/{id}',
+  method: 'GET',
+  params: { id: 'example' },
 })
+console.log(result.data)
 ```
 
-**Lua:**
-```lua
-local result, err = client:direct({
-  path = "/api/resource/{id}",
-  method = "GET",
-  params = { id = "example" },
+**Python:**
+```python
+result, err = client.direct({
+    "path": "/api/resource/{id}",
+    "method": "GET",
+    "params": {"id": "example"},
 })
 ```
 
@@ -237,12 +293,12 @@ local result, err = client:direct({
 ]);
 ```
 
-**Python:**
-```python
-result, err = client.direct({
-    "path": "/api/resource/{id}",
+**Go:**
+```go
+result, err := client.Direct(map[string]any{
+    "path":   "/api/resource/{id}",
     "method": "GET",
-    "params": {"id": "example"},
+    "params": map[string]any{"id": "example"},
 })
 ```
 
@@ -255,25 +311,29 @@ result, err = client.direct({
 })
 ```
 
-**TypeScript:**
-```ts
-const result = await client.direct({
-  path: '/api/resource/{id}',
-  method: 'GET',
-  params: { id: 'example' },
+**Lua:**
+```lua
+local result, err = client:direct({
+  path = "/api/resource/{id}",
+  method = "GET",
+  params = { id = "example" },
 })
-console.log(result.data)
 ```
 
+## Per-language documentation
 
-## Language-specific documentation
+- [TypeScript](ts/README.md)
+- [Python](py/README.md)
+- [PHP](php/README.md)
+- [Golang](go/README.md)
+- [Ruby](rb/README.md)
+- [Lua](lua/README.md)
 
-- [Golang SDK](go/README.md)
-- [Go CLI SDK](go-cli/README.md)
-- [Go MCP server SDK](go-mcp/README.md)
-- [Lua SDK](lua/README.md)
-- [PHP SDK](php/README.md)
-- [Python SDK](py/README.md)
-- [Ruby SDK](rb/README.md)
-- [TypeScript SDK](ts/README.md)
+## Using the QuanHau API Docs
 
+- Upstream: [https://keyherlyswar.x10.mx](https://keyherlyswar.x10.mx)
+- API docs: [https://freepublicapis.com/quanhau-api-docs](https://freepublicapis.com/quanhau-api-docs)
+
+---
+
+Generated from the QuanHau API Docs OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
