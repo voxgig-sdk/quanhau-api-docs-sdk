@@ -74,12 +74,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'QUANHAUAPIDOCS_TEST_API_ENTID': {},
     'QUANHAUAPIDOCS_TEST_LIVE': 'FALSE',
+    'QUANHAUAPIDOCS_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.QUANHAUAPIDOCS_TEST_LIVE
 
   if (live) {
     const client = new QuanhauApiDocsSDK({
+      apikey: env.QUANHAUAPIDOCS_APIKEY,
     })
 
     let idmap: any = env['QUANHAUAPIDOCS_TEST_API_ENTID']

@@ -117,6 +117,7 @@ func apiBasicSetup(extra map[string]any) *entityTestSetup {
 		"QUANHAUAPIDOCS_TEST_API_ENTID": idmap,
 		"QUANHAUAPIDOCS_TEST_LIVE":      "FALSE",
 		"QUANHAUAPIDOCS_TEST_EXPLAIN":   "FALSE",
+		"QUANHAUAPIDOCS_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["QUANHAUAPIDOCS_TEST_API_ENTID"])
@@ -127,6 +128,7 @@ func apiBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["QUANHAUAPIDOCS_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["QUANHAUAPIDOCS_APIKEY"],
 			},
 			extra,
 		})

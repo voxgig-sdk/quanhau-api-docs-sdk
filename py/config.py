@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://keyherlyswar.x10.mx",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -26,49 +29,49 @@ def make_config():
       "api": {
         "fields": [
           {
+            "active": True,
             "name": "data",
             "req": False,
             "type": "`$OBJECT`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "message",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "status",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
         ],
         "name": "api",
         "op": {
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/api",
                 "parts": [
                   "api",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },

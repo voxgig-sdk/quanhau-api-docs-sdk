@@ -14,6 +14,9 @@ local function make_config()
     },
     options = {
       base = "https://keyherlyswar.x10.mx",
+      auth = {
+        prefix = "Bearer",
+      },
       headers = {
         ["content-type"] = "application/json",
       },
@@ -25,49 +28,49 @@ local function make_config()
       ["api"] = {
         ["fields"] = {
           {
+            ["active"] = true,
             ["name"] = "data",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["active"] = true,
             ["index$"] = 0,
           },
           {
+            ["active"] = true,
             ["name"] = "message",
             ["req"] = false,
             ["type"] = "`$STRING`",
-            ["active"] = true,
             ["index$"] = 1,
           },
           {
+            ["active"] = true,
             ["name"] = "status",
             ["req"] = false,
             ["type"] = "`$STRING`",
-            ["active"] = true,
             ["index$"] = 2,
           },
         },
         ["name"] = "api",
         ["op"] = {
           ["load"] = {
+            ["input"] = "data",
             ["name"] = "load",
             ["points"] = {
               {
+                ["active"] = true,
+                ["args"] = {},
                 ["method"] = "GET",
                 ["orig"] = "/api",
                 ["parts"] = {
                   "api",
                 },
+                ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["active"] = true,
-                ["args"] = {},
-                ["select"] = {},
                 ["index$"] = 0,
               },
             },
-            ["input"] = "data",
             ["key$"] = "load",
           },
         },

@@ -1,18 +1,8 @@
 # QuanhauApiDocs SDK
 
-Look up a Facebook user's profile picture by Facebook ID via a single GET endpoint
+QuanHau API Docs client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About QuanHau API Docs
-
-QuanHau API Docs is a small personal API published by QuanHau, a fullstack web developer, on the host `keyherlyswar.x10.mx`. The service is catalogued on [Free Public APIs](https://freepublicapis.com/quanhau-api-docs).
-
-What you get from the API:
-
-- A single `GET` endpoint, `/Apidocs/avtfb.php?uid={facebookId}`, that returns a Facebook profile picture for a given Facebook user ID.
-
-Operational notes: the API is unauthenticated and CORS is disabled. No rate limits are documented. At the time of cataloguing the endpoint was reported as non-functional by the upstream catalogue, so callers should be prepared for errors and treat the service as best-effort.
 
 ## Try it
 
@@ -46,27 +36,31 @@ gem install quanhau-api-docs-sdk
 luarocks install quanhau-api-docs-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { QuanhauApiDocsSDK } from 'quanhau-api-docs'
 
-const client = new QuanhauApiDocsSDK({})
+const client = new QuanhauApiDocsSDK({
+  apikey: process.env.QUANHAU-API-DOCS_APIKEY,
+})
 
+// Load api data
+const api = await client.Api().load({})
+console.log(api.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -96,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Api** | Wraps the single profile-picture lookup endpoint exposed by the service at `/Apidocs/avtfb.php?uid={facebookId}`. | `/api` |
+| **Api** |  | `/api` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -106,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from quanhauapidocs_sdk import QuanhauApiDocsSDK
 
-client = QuanhauApiDocsSDK({})
+client = QuanhauApiDocsSDK({
+    "apikey": os.environ.get("QUANHAU-API-DOCS_APIKEY"),
+})
 
 
 # Load a specific api
-api, err = client.Api(None).load(
-    {"id": "example_id"}, None
-)
+api, err = client.Api().load({"id": "example_id"})
+print(api)
 ```
 
 ### PHP
@@ -123,13 +119,14 @@ api, err = client.Api(None).load(
 <?php
 require_once 'quanhauapidocs_sdk.php';
 
-$client = new QuanhauApiDocsSDK([]);
+$client = new QuanhauApiDocsSDK([
+    "apikey" => getenv("QUANHAU-API-DOCS_APIKEY"),
+]);
 
 
 // Load a specific api
-[$api, $err] = $client->Api(null)->load(
-    ["id" => "example_id"], null
-);
+[$api, $err] = $client->Api()->load(["id" => "example_id"]);
+print_r($api);
 ```
 
 ### Golang
@@ -137,8 +134,13 @@ $client = new QuanhauApiDocsSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/quanhau-api-docs-sdk/go"
 
-client := sdk.NewQuanhauApiDocsSDK(map[string]any{})
+client := sdk.NewQuanhauApiDocsSDK(map[string]any{
+    "apikey": os.Getenv("QUANHAU-API-DOCS_APIKEY"),
+})
 
+// Load api data
+api, err := client.Api(nil).Load(map[string]any{}, nil)
+fmt.Println(api)
 ```
 
 ### Ruby
@@ -146,13 +148,14 @@ client := sdk.NewQuanhauApiDocsSDK(map[string]any{})
 ```ruby
 require_relative "QuanhauApiDocs_sdk"
 
-client = QuanhauApiDocsSDK.new({})
+client = QuanhauApiDocsSDK.new({
+  "apikey" => ENV["QUANHAU-API-DOCS_APIKEY"],
+})
 
 
 # Load a specific api
-api, err = client.Api(nil).load(
-  { "id" => "example_id" }, nil
-)
+api, err = client.Api().load({ "id" => "example_id" })
+puts api
 ```
 
 ### Lua
@@ -160,13 +163,14 @@ api, err = client.Api(nil).load(
 ```lua
 local sdk = require("quanhau-api-docs_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("QUANHAU-API-DOCS_APIKEY"),
+})
 
 
 -- Load a specific api
-local api, err = client:Api(nil):load(
-  { id = "example_id" }, nil
-)
+local api, err = client:Api():load({ id = "example_id" })
+print(api)
 ```
 
 ## Unit testing in offline mode
@@ -185,25 +189,21 @@ const result = await client.Api().load({ id: 'test01' })
 ### Python
 
 ```python
-client = QuanhauApiDocsSDK.test(None, None)
-result, err = client.Api(None).load(
-    {"id": "test01"}, None
-)
+client = QuanhauApiDocsSDK.test()
+result, err = client.Api().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = QuanhauApiDocsSDK::test(null, null);
-[$result, $err] = $client->Api(null)->load(
-    ["id" => "test01"], null
-);
+$client = QuanhauApiDocsSDK::test();
+[$result, $err] = $client->Api()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Api(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -212,19 +212,15 @@ result, err := client.Api(nil).Load(
 ### Ruby
 
 ```ruby
-client = QuanhauApiDocsSDK.test(nil, nil)
-result, err = client.Api(nil).load(
-  { "id" => "test01" }, nil
-)
+client = QuanhauApiDocsSDK.test
+result, err = client.Api().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Api(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Api():load({ id = "test01" })
 ```
 
 ## How it works
@@ -328,11 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the QuanHau API Docs
-
-- Upstream: [https://keyherlyswar.x10.mx](https://keyherlyswar.x10.mx)
-- API docs: [https://freepublicapis.com/quanhau-api-docs](https://freepublicapis.com/quanhau-api-docs)
 
 ---
 
