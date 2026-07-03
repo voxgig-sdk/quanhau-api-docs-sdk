@@ -10,7 +10,7 @@ The TypeScript SDK for the QuanhauApiDocs API — a type-safe, entity-oriented c
 
 ## Install
 ```bash
-npm install quanhau-api-docs
+npm install @voxgig-sdk/quanhau-api-docs
 ```
 ## Tutorial: your first API call
 

@@ -10,7 +10,7 @@ The Lua SDK for the QuanhauApiDocs API — an entity-oriented client using Lua c
 
 ## Install
 ```bash
-luarocks install quanhau-api-docs-sdk
+luarocks install voxgig-sdk-quanhau-api-docs
 ```
 
 If the module is not yet published, add the source directory to

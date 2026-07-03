@@ -10,7 +10,7 @@ The PHP SDK for the QuanhauApiDocs API — an entity-oriented client using PHP c
 
 ## Install
 ```bash
-composer require voxgig/quanhau-api-docs-sdk
+composer require voxgig-sdk/quanhau-api-docs
 ```
 
 

@@ -10,13 +10,13 @@ The Ruby SDK for the QuanhauApiDocs API — an entity-oriented client using idio
 
 ## Install
 ```bash
-gem install quanhau-api-docs-sdk
+gem install voxgig-sdk-quanhau-api-docs
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "quanhau-api-docs-sdk"
+gem "voxgig-sdk-quanhau-api-docs"
 ```
 
 Then run:

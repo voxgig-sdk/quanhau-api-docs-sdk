@@ -10,7 +10,7 @@ The Python SDK for the QuanhauApiDocs API — an entity-oriented client followin
 
 ## Install
 ```bash
-pip install quanhau-api-docs-sdk
+pip install voxgig-sdk-quanhau-api-docs
 ```
 
 Or install from source:
