@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'QUANHAU_API_DOCS_TEST_API_ENTID': idmap,
     'QUANHAU_API_DOCS_TEST_LIVE': 'FALSE',
     'QUANHAU_API_DOCS_TEST_EXPLAIN': 'FALSE',
-    'QUANHAU_API_DOCS_APIKEY': 'NONE',
   })
 
   idmap = env['QUANHAU_API_DOCS_TEST_API_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new QuanhauApiDocsSDK(merge([
       {
-        apikey: env.QUANHAU_API_DOCS_APIKEY,
       },
       extra
     ]))

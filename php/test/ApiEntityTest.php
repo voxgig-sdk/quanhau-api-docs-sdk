@@ -49,8 +49,7 @@ class ApiEntityTest extends TestCase
         // LOAD
         $api_ref01_ent = $client->Api(null);
         $api_ref01_match_dt0 = [];
-        [$api_ref01_data_dt0_loaded, $err] = $api_ref01_ent->load($api_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $api_ref01_data_dt0_loaded = $api_ref01_ent->load($api_ref01_match_dt0, null);
         $this->assertNotNull($api_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function api_basic_setup($extra)
         "QUANHAUAPIDOCS_TEST_API_ENTID" => $idmap,
         "QUANHAUAPIDOCS_TEST_LIVE" => "FALSE",
         "QUANHAUAPIDOCS_TEST_EXPLAIN" => "FALSE",
-        "QUANHAUAPIDOCS_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function api_basic_setup($extra)
     if ($env["QUANHAUAPIDOCS_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["QUANHAUAPIDOCS_APIKEY"],
             ],
             $extra ?? [],
         ]);

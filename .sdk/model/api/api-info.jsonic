@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         email: "haudepzai2010@gmail.com"
         name: "Tran Quan Hau (QuanHau/Herlys)"

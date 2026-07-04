@@ -91,7 +91,6 @@ function api_basic_setup(extra)
     ["QUANHAUAPIDOCS_TEST_API_ENTID"] = idmap,
     ["QUANHAUAPIDOCS_TEST_LIVE"] = "FALSE",
     ["QUANHAUAPIDOCS_TEST_EXPLAIN"] = "FALSE",
-    ["QUANHAUAPIDOCS_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ function api_basic_setup(extra)
   if env["QUANHAUAPIDOCS_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["QUANHAUAPIDOCS_APIKEY"],
       },
       extra or {},
     })

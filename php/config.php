@@ -20,9 +20,6 @@ class QuanhauApiDocsConfig
             ],
             "options" => [
                 "base" => "https://keyherlyswar.x10.mx",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

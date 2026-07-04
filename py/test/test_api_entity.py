@@ -49,8 +49,7 @@ class TestApiEntity:
         # LOAD
         api_ref01_ent = client.Api(None)
         api_ref01_match_dt0 = {}
-        api_ref01_data_dt0_loaded, err = api_ref01_ent.load(api_ref01_match_dt0, None)
-        assert err is None
+        api_ref01_data_dt0_loaded = api_ref01_ent.load(api_ref01_match_dt0, None)
         assert api_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _api_basic_setup(extra):
         "QUANHAUAPIDOCS_TEST_API_ENTID": idmap,
         "QUANHAUAPIDOCS_TEST_LIVE": "FALSE",
         "QUANHAUAPIDOCS_TEST_EXPLAIN": "FALSE",
-        "QUANHAUAPIDOCS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _api_basic_setup(extra):
     if env.get("QUANHAUAPIDOCS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("QUANHAUAPIDOCS_APIKEY"),
             },
             extra or {},
         ])
