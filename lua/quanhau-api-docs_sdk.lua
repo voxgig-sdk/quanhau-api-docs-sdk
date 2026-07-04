@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:api():list() / client:api():load({ id = ... })
-function QuanhauApiDocsSDK:api(data)
+-- Idiomatic facade: client:Api():list() / client:Api():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function QuanhauApiDocsSDK:Api(data)
   local EntityMod = require("entity.api_entity")
   if data == nil then
     if self._api == nil then
@@ -253,12 +254,6 @@ function QuanhauApiDocsSDK:api(data)
     end
     return self._api
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:api() instead.
-function QuanhauApiDocsSDK:Api(data)
-  local EntityMod = require("entity.api_entity")
   return EntityMod.new(self, data)
 end
 

@@ -26,9 +26,9 @@ import { QuanhauApiDocsSDK } from '@voxgig-sdk/quanhau-api-docs'
 
 const client = new QuanhauApiDocsSDK()
 
-// Load api data
-const api = await client.api.load({})
-console.log(api.data)
+// Load api data (returns a Api)
+const api = await client.Api().load()
+console.log(api)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from quanhauapidocs_sdk import QuanhauApiDocsSDK
 client = QuanhauApiDocsSDK()
 
 
-# Load a specific api
-api = client.api.load({"id": "example_id"})
+# Load a specific api (returns the record, raises on error)
+api = client.Api().load({"id": "example_id"})
 print(api)
 ```
 
@@ -98,8 +98,8 @@ require_once 'quanhauapidocs_sdk.php';
 $client = new QuanhauApiDocsSDK();
 
 
-// Load a specific api
-$api = $client->api()->load(["id" => "example_id"]);
+// Load a specific api (returns the bare record; throws on error)
+$api = $client->Api()->load(["id" => "example_id"]);
 print_r($api);
 ```
 
@@ -123,8 +123,8 @@ require_relative "QuanhauApiDocs_sdk"
 client = QuanhauApiDocsSDK.new
 
 
-# Load a specific api
-api = client.api.load({ "id" => "example_id" })
+# Load a specific api (returns the bare record; raises on error)
+api = client.Api.load({ "id" => "example_id" })
 puts api
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific api
-local api, err = client:api():load({ id = "example_id" })
+local api, err = client:Api():load({ id = "example_id" })
 print(api)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = QuanhauApiDocsSDK.test()
-const result = await client.api.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const api = await client.Api().load({ id: 'test01' })
+// api is a bare Api populated with mock data
+console.log(api)
 ```
 
 ### Python
 
 ```python
 client = QuanhauApiDocsSDK.test()
-result = client.api.load({"id": "test01"})
+api = client.Api().load({"id": "test01"})
+print(api)
 ```
 
 ### PHP
 
 ```php
-$client = QuanhauApiDocsSDK::test();
-$result = $client->api()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = QuanhauApiDocsSDK::test([
+    "entity" => ["api" => ["test01" => ["id" => "test01"]]],
+]);
+$api = $client->Api()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.Api(nil).Load(
 ### Ruby
 
 ```ruby
-client = QuanhauApiDocsSDK.test
-result = client.api.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = QuanhauApiDocsSDK.test({
+  "entity" => { "api" => { "test01" => { "id" => "test01" } } },
+})
+api = client.Api.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:api():load({ id = "test01" })
+local result, err = client:Api():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 
