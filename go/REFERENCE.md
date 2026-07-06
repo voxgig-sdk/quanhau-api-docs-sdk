@@ -97,9 +97,9 @@ api := client.Api(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `data` | `map[string]any` | No |  |
+| `message` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -108,7 +108,7 @@ api := client.Api(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Api(nil).Load(map[string]any{"id": "api_id"}, nil)
+result, err := client.Api(nil).Load(nil, nil)
 ```
 
 ### Common Methods

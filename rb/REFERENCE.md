@@ -8,7 +8,7 @@ Complete API reference for the QuanhauApiDocs Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'quanhau-api-docs_sdk'
+require_relative 'QuanhauApiDocs_sdk'
 
 client = QuanhauApiDocsSDK.new(options)
 ```
@@ -93,9 +93,9 @@ api = client.Api
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `data` | `Hash` | No |  |
+| `message` | `String` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 
@@ -104,7 +104,7 @@ api = client.Api
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Api.load({ "id" => "api_id" })
+result = client.Api.load()
 ```
 
 ### Common Methods

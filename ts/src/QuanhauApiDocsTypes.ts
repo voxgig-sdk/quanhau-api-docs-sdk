@@ -11,5 +11,9 @@ export interface Api {
   status?: string
 }
 
-export type ApiLoadMatch = Partial<Api>
+export interface ApiLoadMatch {
+  data?: Record<string, any>
+  message?: string
+  status?: string
+}
 

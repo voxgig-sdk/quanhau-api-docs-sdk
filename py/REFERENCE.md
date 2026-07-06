@@ -8,7 +8,7 @@ Complete API reference for the QuanhauApiDocs Python SDK.
 ### Constructor
 
 ```python
-from quanhau-api-docs_sdk import QuanhauApiDocsSDK
+from quanhauapidocs_sdk import QuanhauApiDocsSDK
 
 client = QuanhauApiDocsSDK(options)
 ```
@@ -87,9 +87,9 @@ api = client.Api()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `data` | `dict` | No |  |
+| `message` | `str` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 
@@ -98,7 +98,7 @@ api = client.Api()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Api().load({"id": "api_id"})
+result = client.Api().load()
 ```
 
 ### Common Methods

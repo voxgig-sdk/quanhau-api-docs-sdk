@@ -12,6 +12,9 @@
 ---@field status? string
 
 ---@class ApiLoadMatch
+---@field data? table
+---@field message? string
+---@field status? string
 
 local M = {}
 

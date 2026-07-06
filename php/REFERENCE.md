@@ -8,7 +8,7 @@ Complete API reference for the QuanhauApiDocs PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/quanhau-api-docs_sdk.php';
+require_once __DIR__ . '/quanhauapidocs_sdk.php';
 
 $client = new QuanhauApiDocsSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = QuanhauApiDocsSDK::test();
 
 Create a new `ApiEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): QuanhauApiDocsUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,9 +92,9 @@ $api = $client->Api();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `data` | `array` | No |  |
+| `message` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -103,24 +103,24 @@ $api = $client->Api();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Api()->load(["id" => "api_id"]);
+$result = $client->Api()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -129,7 +129,7 @@ Set the entity match criteria.
 Create a new `ApiEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

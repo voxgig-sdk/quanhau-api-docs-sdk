@@ -15,8 +15,7 @@ type Api struct {
 	Status *string `json:"status,omitempty"`
 }
 
-// ApiLoadMatch mirrors the api fields as an all-optional match
-// filter (Go analog of Partial<Api>).
+// ApiLoadMatch is the typed request payload for Api.LoadTyped.
 type ApiLoadMatch struct {
 	Data *map[string]any `json:"data,omitempty"`
 	Message *string `json:"message,omitempty"`
