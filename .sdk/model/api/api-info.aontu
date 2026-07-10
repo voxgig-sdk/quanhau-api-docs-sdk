@@ -17,9 +17,9 @@ main: {
           url: "https://keyherlyswar.x10.mx"
         }
       ]
+      summary: "This API documentation serves as a comprehensive guide for developers to understand and integrate with the services offered by QuanHau, a fullstack web developer."
       title: "QuanHau API Docs"
       version: "1.0.0"
+      website: "https://keyherlyswar.x10.mx"
     }
   }
-}
-
