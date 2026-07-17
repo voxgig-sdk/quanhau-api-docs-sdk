@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- QuanhauApiDocs SDK exists test
 
 local sdk = require("quanhau-api-docs_sdk")
 
