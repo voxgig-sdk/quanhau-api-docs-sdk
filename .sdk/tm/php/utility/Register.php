@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ QuanhauApiDocsUtility::setRegistrar(function (QuanhauApiDocsUtility $u): void {
     $u->prepare_params = [QuanhauApiDocsPrepareParams::class, 'call'];
     $u->prepare_path = [QuanhauApiDocsPreparePath::class, 'call'];
     $u->prepare_query = [QuanhauApiDocsPrepareQuery::class, 'call'];
+    $u->graphql_body = [QuanhauApiDocsGraphql::class, 'body'];
+    $u->graphql_errors = [QuanhauApiDocsGraphql::class, 'errors'];
     $u->result_basic = [QuanhauApiDocsResultBasic::class, 'call'];
     $u->result_body = [QuanhauApiDocsResultBody::class, 'call'];
     $u->result_headers = [QuanhauApiDocsResultHeaders::class, 'call'];

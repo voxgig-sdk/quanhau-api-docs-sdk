@@ -60,11 +60,11 @@ function api_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["QUANHAUAPIDOCS_TEST_API_ENTID"] = {},
-    ["QUANHAUAPIDOCS_TEST_LIVE"] = "FALSE",
+    ["QUANHAU_API_DOCS_TEST_API_ENTID"] = {},
+    ["QUANHAU_API_DOCS_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["QUANHAUAPIDOCS_TEST_LIVE"] == "TRUE"
+  local live = env["QUANHAU_API_DOCS_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

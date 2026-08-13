@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ QuanhauApiDocsUtility.registrar = ->(u) {
   u.prepare_params = QuanhauApiDocsUtilities::PrepareParams
   u.prepare_path = QuanhauApiDocsUtilities::PreparePath
   u.prepare_query = QuanhauApiDocsUtilities::PrepareQuery
+  u.graphql_body = QuanhauApiDocsUtilities::GraphqlBody
+  u.graphql_errors = QuanhauApiDocsUtilities::GraphqlErrors
   u.result_basic = QuanhauApiDocsUtilities::ResultBasic
   u.result_body = QuanhauApiDocsUtilities::ResultBody
   u.result_headers = QuanhauApiDocsUtilities::ResultHeaders

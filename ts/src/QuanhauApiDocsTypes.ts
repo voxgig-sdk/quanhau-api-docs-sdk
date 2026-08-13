@@ -6,14 +6,12 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Api {
-  data?: Record<string, any>
-  message?: string
-  status?: string
+  developer?: string
+  version?: string
 }
 
 export interface ApiLoadMatch {
-  data?: Record<string, any>
-  message?: string
-  status?: string
+  developer?: string
+  version?: string
 }
 

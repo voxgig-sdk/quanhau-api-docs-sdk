@@ -59,11 +59,11 @@ def api_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "QUANHAUAPIDOCS_TEST_API_ENTID" => {},
-    "QUANHAUAPIDOCS_TEST_LIVE" => "FALSE",
+    "QUANHAU_API_DOCS_TEST_API_ENTID" => {},
+    "QUANHAU_API_DOCS_TEST_LIVE" => "FALSE",
   })
 
-  live = env["QUANHAUAPIDOCS_TEST_LIVE"] == "TRUE"
+  live = env["QUANHAU_API_DOCS_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

@@ -98,9 +98,8 @@ fmt.Println(api.GetName()) // "api"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `map[string]any` | No |  |
-| `message` | `string` | No |  |
-| `status` | `string` | No |  |
+| `developer` | `string` | No |  |
+| `version` | `string` | No |  |
 
 ### Operations
 

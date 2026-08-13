@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# QuanhauApiDocs SDK exists test
 
 import pytest
 from quanhauapidocs_sdk import QuanhauApiDocsSDK

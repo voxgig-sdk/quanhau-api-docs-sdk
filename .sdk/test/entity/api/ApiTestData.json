@@ -2,21 +2,18 @@
   "existing": {
     "api": {
       "API00": {
-        "data": {},
-        "message": "s1f",
-        "status": "s20",
+        "developer": "s14",
+        "version": "s15",
         "id": "API00"
       },
       "API01": {
-        "data": {},
-        "message": "s3d",
-        "status": "s3e",
+        "developer": "s28",
+        "version": "s29",
         "id": "API01"
       },
       "API02": {
-        "data": {},
-        "message": "s5b",
-        "status": "s5c",
+        "developer": "s3c",
+        "version": "s3d",
         "id": "API02"
       }
     }
@@ -24,9 +21,8 @@
   "new": {
     "api": {
       "api_ref01": {
-        "data": {},
-        "message": "s79",
-        "status": "s7a"
+        "developer": "s50",
+        "version": "s51"
       }
     }
   }

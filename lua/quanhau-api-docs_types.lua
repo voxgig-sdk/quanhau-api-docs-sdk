@@ -7,14 +7,12 @@
 -- edit by hand.
 
 ---@class Api
----@field data? table
----@field message? string
----@field status? string
+---@field developer? string
+---@field version? string
 
 ---@class ApiLoadMatch
----@field data? table
----@field message? string
----@field status? string
+---@field developer? string
+---@field version? string
 
 local M = {}
 

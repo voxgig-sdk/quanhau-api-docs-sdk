@@ -43,8 +43,8 @@ class QuanhauApiDocsTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('QUANHAUAPIDOCS_TEST_LIVE');
-        $override = self::getenv('QUANHAUAPIDOCS_TEST_OVERRIDE');
+        $live = self::getenv('QUANHAU_API_DOCS_TEST_LIVE');
+        $override = self::getenv('QUANHAU_API_DOCS_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class QuanhauApiDocsTestRunner
             }
         }
 
-        $explain = self::getenv('QUANHAUAPIDOCS_TEST_EXPLAIN');
+        $explain = self::getenv('QUANHAU_API_DOCS_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['QUANHAUAPIDOCS_TEST_EXPLAIN'] = $explain;
+            $m['QUANHAU_API_DOCS_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

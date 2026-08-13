@@ -34,7 +34,7 @@ client = QuanhauApiDocsSDK.new
 
 ```ruby
 begin
-  # load returns the bare Api record (raises on error).
+  # load returns the ENTITY — call data_get for the Api record (raises on error).
   api = client.Api.load()
   puts api
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = QuanhauApiDocsSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 api = client.Api.load()
 puts api
 ```
@@ -234,9 +235,8 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `message` |  |
-| `status` |  |
+| `developer` |  |
+| `version` |  |
 
 Operations: Load.
 
@@ -261,14 +261,13 @@ Create an instance: `api = client.Api`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `Hash` |  |
-| `message` | `String` |  |
-| `status` | `String` |  |
+| `developer` | `String` |  |
+| `version` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Api record (raises on error).
+# load returns the ENTITY — call data_get for the Api record (raises on error).
 api = client.Api.load()
 ```
 

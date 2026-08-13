@@ -90,9 +90,8 @@ local api = client:Api(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `table` | No |  |
-| `message` | `string` | No |  |
-| `status` | `string` | No |  |
+| `developer` | `string` | No |  |
+| `version` | `string` | No |  |
 
 ### Operations
 

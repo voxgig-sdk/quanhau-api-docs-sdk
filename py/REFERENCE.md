@@ -87,9 +87,8 @@ api = client.Api()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `dict` | No |  |
-| `message` | `str` | No |  |
-| `status` | `str` | No |  |
+| `developer` | `str` | No |  |
+| `version` | `str` | No |  |
 
 ### Operations
 

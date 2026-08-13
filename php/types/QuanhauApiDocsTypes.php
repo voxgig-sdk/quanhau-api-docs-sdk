@@ -15,16 +15,14 @@ declare(strict_types=1);
 /** Api entity data model. */
 class Api
 {
-    public ?array $data = null;
-    public ?string $message = null;
-    public ?string $status = null;
+    public ?string $developer = null;
+    public ?string $version = null;
 }
 
 /** Request payload for Api#load. */
 class ApiLoadMatch
 {
-    public ?array $data = null;
-    public ?string $message = null;
-    public ?string $status = null;
+    public ?string $developer = null;
+    public ?string $version = null;
 }
 

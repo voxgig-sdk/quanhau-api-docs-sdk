@@ -16,11 +16,11 @@
 import pytest
 
 from quanhauapidocs_sdk import QuanhauApiDocsSDK
-from core.error import QuanhauApiDocsError
-from core.result import QuanhauApiDocsResult
-from core.response import QuanhauApiDocsResponse
-from core.spec import QuanhauApiDocsSpec
-from feature.base_feature import QuanhauApiDocsBaseFeature
+from quanhauapidocs_sdk.core.error import QuanhauApiDocsError
+from quanhauapidocs_sdk.core.result import QuanhauApiDocsResult
+from quanhauapidocs_sdk.core.response import QuanhauApiDocsResponse
+from quanhauapidocs_sdk.core.spec import QuanhauApiDocsSpec
+from quanhauapidocs_sdk.feature.base_feature import QuanhauApiDocsBaseFeature
 
 
 def _client():

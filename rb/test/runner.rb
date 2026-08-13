@@ -23,8 +23,8 @@ module QuanhauApiDocsTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("QUANHAUAPIDOCS_TEST_LIVE")
-    override = getenv("QUANHAUAPIDOCS_TEST_OVERRIDE")
+    live = getenv("QUANHAU_API_DOCS_TEST_LIVE")
+    override = getenv("QUANHAU_API_DOCS_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module QuanhauApiDocsTestRunner
       end
     end
 
-    explain = getenv("QUANHAUAPIDOCS_TEST_EXPLAIN")
-    m["QUANHAUAPIDOCS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("QUANHAU_API_DOCS_TEST_EXPLAIN")
+    m["QUANHAU_API_DOCS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

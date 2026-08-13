@@ -92,9 +92,8 @@ $api = $client->Api();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `array` | No |  |
-| `message` | `string` | No |  |
-| `status` | `string` | No |  |
+| `developer` | `string` | No |  |
+| `version` | `string` | No |  |
 
 ### Operations
 

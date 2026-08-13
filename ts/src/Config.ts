@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'QuanhauApiDocs',
   }
 
 
@@ -56,24 +56,17 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "data",
+          "name": "developer",
           "req": false,
-          "type": "`$OBJECT`",
+          "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "message",
+          "name": "version",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
-        },
-        {
-          "active": true,
-          "name": "status",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
         }
       ],
       "name": "api",
@@ -85,6 +78,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/api",
               "parts": [
@@ -93,7 +87,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "index$": 0
             }

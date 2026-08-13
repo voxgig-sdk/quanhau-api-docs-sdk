@@ -258,9 +258,8 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"data"` |  |
-| `"message"` |  |
-| `"status"` |  |
+| `"developer"` |  |
+| `"version"` |  |
 
 Operations: Load.
 
@@ -285,9 +284,8 @@ Create an instance: `api := client.Api(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `map[string]any` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
+| `developer` | `string` |  |
+| `version` | `string` |  |
 
 #### Example: Load
 

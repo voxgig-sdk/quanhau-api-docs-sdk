@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from quanhauapidocs_sdk.utility.voxgig_struct import voxgig_struct as vs
 from quanhauapidocs_sdk import QuanhauApiDocsSDK
-from core import helpers
+from quanhauapidocs_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _api_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "QUANHAUAPIDOCS_TEST_API_ENTID": {},
-        "QUANHAUAPIDOCS_TEST_LIVE": "FALSE",
+        "QUANHAU_API_DOCS_TEST_API_ENTID": {},
+        "QUANHAU_API_DOCS_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("QUANHAUAPIDOCS_TEST_LIVE") == "TRUE"
+    live = env.get("QUANHAU_API_DOCS_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

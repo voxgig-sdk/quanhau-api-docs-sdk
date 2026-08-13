@@ -19,11 +19,15 @@ import {
 describe('ApiDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when QUANHAUAPIDOCS_TEST_LIVE=TRUE.
-  afterEach(liveDelay('QUANHAUAPIDOCS_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when QUANHAU_API_DOCS_TEST_LIVE=TRUE.
+  afterEach(liveDelay('QUANHAU_API_DOCS_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new QuanhauApiDocsSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -72,17 +76,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'QUANHAUAPIDOCS_TEST_API_ENTID': {},
-    'QUANHAUAPIDOCS_TEST_LIVE': 'FALSE',
+    'QUANHAU_API_DOCS_TEST_API_ENTID': {},
+    'QUANHAU_API_DOCS_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.QUANHAUAPIDOCS_TEST_LIVE
+  const live = 'TRUE' === env.QUANHAU_API_DOCS_TEST_LIVE
 
   if (live) {
     const client = new QuanhauApiDocsSDK({
     })
 
-    let idmap: any = env['QUANHAUAPIDOCS_TEST_API_ENTID']
+    let idmap: any = env['QUANHAU_API_DOCS_TEST_API_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

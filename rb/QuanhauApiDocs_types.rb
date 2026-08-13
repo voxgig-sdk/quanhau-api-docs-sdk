@@ -10,35 +10,27 @@
 
 # Api entity data model.
 #
-# @!attribute [rw] data
-#   @return [Hash, nil]
-#
-# @!attribute [rw] message
+# @!attribute [rw] developer
 #   @return [String, nil]
 #
-# @!attribute [rw] status
+# @!attribute [rw] version
 #   @return [String, nil]
 Api = Struct.new(
-  :data,
-  :message,
-  :status,
+  :developer,
+  :version,
   keyword_init: true
 )
 
 # Request payload for Api#load.
 #
-# @!attribute [rw] data
-#   @return [Hash, nil]
-#
-# @!attribute [rw] message
+# @!attribute [rw] developer
 #   @return [String, nil]
 #
-# @!attribute [rw] status
+# @!attribute [rw] version
 #   @return [String, nil]
 ApiLoadMatch = Struct.new(
-  :data,
-  :message,
-  :status,
+  :developer,
+  :version,
   keyword_init: true
 )
 

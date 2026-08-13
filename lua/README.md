@@ -225,9 +225,8 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `message` |  |
-| `status` |  |
+| `developer` |  |
+| `version` |  |
 
 Operations: Load.
 
@@ -252,9 +251,8 @@ Create an instance: `local api = client:Api(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `table` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
+| `developer` | `string` |  |
+| `version` | `string` |  |
 
 #### Example: Load
 

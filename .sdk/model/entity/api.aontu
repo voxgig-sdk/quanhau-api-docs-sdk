@@ -6,17 +6,12 @@ main: kit: entity: api: {
 
   fields: [
     {
-      name: "data"
-      req: false
-      type: "`$OBJECT`"
-    }
-    {
-      name: "message"
+      name: "developer"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "status"
+      name: "version"
       req: false
       type: "`$STRING`"
     }
@@ -35,7 +30,7 @@ main: kit: entity: api: {
           ]
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

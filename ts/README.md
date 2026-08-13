@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = QuanhauApiDocsSDK.test()
 
 const api = await client.Api().load()
-// api is a bare entity populated with mock response data
+// api is the entity, populated with mock response data
+// — call api.data() for the record itself
 console.log(api)
 ```
 
@@ -284,9 +285,8 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
-| `message` |  |
-| `status` |  |
+| `developer` |  |
+| `version` |  |
 
 Operations: load.
 
@@ -311,9 +311,8 @@ Create an instance: `const api = client.Api()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `Record<string, any>` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
+| `developer` | `string` |  |
+| `version` | `string` |  |
 
 #### Example: Load
 

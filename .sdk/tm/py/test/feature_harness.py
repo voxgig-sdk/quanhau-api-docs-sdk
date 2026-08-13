@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import QuanhauApiDocsControl
-from core.error import QuanhauApiDocsError
-from core.result import QuanhauApiDocsResult
-from core.spec import QuanhauApiDocsSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import QuanhauApiDocsControl
+from projectname_sdk.core.error import QuanhauApiDocsError
+from projectname_sdk.core.result import QuanhauApiDocsResult
+from projectname_sdk.core.spec import QuanhauApiDocsSpec
 
 
 # True when this SDK was generated with the named feature.

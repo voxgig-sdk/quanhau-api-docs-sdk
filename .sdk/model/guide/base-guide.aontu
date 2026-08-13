@@ -8,6 +8,7 @@ guide: {
   entity: api: {
     path: "/api": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
     }
   }
 

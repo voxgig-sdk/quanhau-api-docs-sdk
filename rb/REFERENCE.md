@@ -93,9 +93,8 @@ api = client.Api
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `Hash` | No |  |
-| `message` | `String` | No |  |
-| `status` | `String` | No |  |
+| `developer` | `String` | No |  |
+| `version` | `String` | No |  |
 
 ### Operations
 
