@@ -23,6 +23,7 @@ build = {
   modules = {
     ["quanhau-api-docs_sdk"] = "quanhau-api-docs_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

@@ -40,7 +40,7 @@ class QuanhauApiDocsSDK
         $utility = new QuanhauApiDocsUtility();
         $this->_utility = $utility;
 
-        $config = QuanhauApiDocsConfig::make_config();
+        $config = QuanhauApiDocsConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

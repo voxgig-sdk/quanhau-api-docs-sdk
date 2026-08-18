@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://keyherlyswar.x10.mx',
+    base: "https://keyherlyswar.x10.mx",
 
     headers: {
       "content-type": "application/json"
@@ -55,18 +55,12 @@ class Config {
     "api": {
       "fields": [
         {
-          "active": true,
           "name": "developer",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "version",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         }
       ],
       "name": "api",
@@ -76,7 +70,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -88,11 +81,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.data`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {

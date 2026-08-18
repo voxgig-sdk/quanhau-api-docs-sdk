@@ -28,7 +28,7 @@ class QuanhauApiDocsSDK
     utility = QuanhauApiDocsUtility.new
     @_utility = utility
 
-    config = QuanhauApiDocsConfig.make_config
+    config = QuanhauApiDocsConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
