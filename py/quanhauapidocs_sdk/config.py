@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "QuanhauApiDocs",
+            "slug": "quanhau-api-docs",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {

@@ -33,6 +33,9 @@ class QuanhauApiDocsConfig
         return [
             "main" => [
                 "name" => "QuanhauApiDocs",
+                "slug" => "quanhau-api-docs",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [

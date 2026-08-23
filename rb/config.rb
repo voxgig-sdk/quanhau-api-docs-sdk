@@ -19,6 +19,9 @@ module QuanhauApiDocsConfig
     {
       "main" => {
         "name" => "QuanhauApiDocs",
+        "slug" => "quanhau-api-docs",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
