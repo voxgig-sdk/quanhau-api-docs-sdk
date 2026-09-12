@@ -51,13 +51,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api",
-                ["parts"] = {
-                  "api",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.data`",
+                },
+                ["parts"] = {
+                  "api",
                 },
               },
             },

@@ -1,6 +1,14 @@
 # QuanhauApiDocs SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -72,14 +80,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api",
-                "parts": [
-                  "api",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.data`",
                 },
+                "parts": [
+                  "api",
+                ],
               },
             ],
           },
