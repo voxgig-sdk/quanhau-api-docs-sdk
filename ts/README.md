@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { QuanhauApiDocsSDK } from '@voxgig-sdk/quanhau-api-docs'
+import { QuanhauApiDocsSDK } from '@voxgig-sdk/quanhau-api-docs-sdk'
 
 const client = new QuanhauApiDocsSDK()
 ```
@@ -403,7 +403,7 @@ quanhau-api-docs/
 Import the SDK from the package root:
 
 ```ts
-import { QuanhauApiDocsSDK } from '@voxgig-sdk/quanhau-api-docs'
+import { QuanhauApiDocsSDK } from '@voxgig-sdk/quanhau-api-docs-sdk'
 ```
 
 ### Entity state

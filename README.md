@@ -105,7 +105,7 @@ local result, err = client:Api():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/quanhau-api-docs` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quanhau-api-docs-sdk/releases) |
+| TypeScript | `@voxgig-sdk/quanhau-api-docs-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quanhau-api-docs-sdk/releases) |
 | Python | `voxgig-sdk-quanhau-api-docs` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quanhau-api-docs-sdk/releases) |
 | PHP | `voxgig-sdk/quanhau-api-docs` | publish pending — [install from git tag](https://github.com/voxgig-sdk/quanhau-api-docs-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/quanhau-api-docs-sdk/go` | `go get github.com/voxgig-sdk/quanhau-api-docs-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Api():load()
 ### TypeScript
 
 ```ts
-import { QuanhauApiDocsSDK } from '@voxgig-sdk/quanhau-api-docs'
+import { QuanhauApiDocsSDK } from '@voxgig-sdk/quanhau-api-docs-sdk'
 
 const client = new QuanhauApiDocsSDK()
 
