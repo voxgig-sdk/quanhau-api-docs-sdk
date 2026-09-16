@@ -23,6 +23,12 @@ main: kit: entity: api: {
       name: "load"
       points: [
         {
+          contract: {
+            id: "GET /api"
+            json: "{\"operationId\":\"getApiInfo\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"properties\":{\"developer\":{\"example\":\"QuanHau (Herlys)\",\"type\":\"string\"},\"version\":{\"example\":\"1.0.0\",\"type\":\"string\"}},\"type\":\"object\"},\"message\":{\"example\":\"API is operational\",\"type\":\"string\"},\"status\":{\"example\":\"success\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"example\":500,\"type\":\"integer\"},\"message\":{\"example\":\"An error occurred\",\"type\":\"string\"},\"status\":{\"example\":\"error\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/api"
           segments: [

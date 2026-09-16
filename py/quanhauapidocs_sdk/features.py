@@ -1,12 +1,18 @@
 # QuanhauApiDocs SDK feature factory
 
 from quanhauapidocs_sdk.feature.base_feature import QuanhauApiDocsBaseFeature
+from quanhauapidocs_sdk.feature.ratelimit_feature import QuanhauApiDocsRatelimitFeature
+from quanhauapidocs_sdk.feature.retry_feature import QuanhauApiDocsRetryFeature
 from quanhauapidocs_sdk.feature.test_feature import QuanhauApiDocsTestFeature
+from quanhauapidocs_sdk.feature.timeout_feature import QuanhauApiDocsTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: QuanhauApiDocsBaseFeature(),
+    "ratelimit": lambda: QuanhauApiDocsRatelimitFeature(),
+    "retry": lambda: QuanhauApiDocsRetryFeature(),
     "test": lambda: QuanhauApiDocsTestFeature(),
+    "timeout": lambda: QuanhauApiDocsTimeoutFeature(),
 }
 
 
