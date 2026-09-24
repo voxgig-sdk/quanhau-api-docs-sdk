@@ -116,10 +116,12 @@ def make_config():
         "fields": [
           {
             "name": "developer",
+            "title": "Developer",
             "type": "`$STRING`",
           },
           {
             "name": "version",
+            "title": "Version",
             "type": "`$STRING`",
           },
         ],
@@ -130,7 +132,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api",
@@ -139,14 +140,16 @@ def make_config():
                     "lit": "api",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "api",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.data`",
                 },
-                "parts": [
-                  "api",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },

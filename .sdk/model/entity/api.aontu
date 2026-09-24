@@ -1,0 +1,51 @@
+# Entity: api
+
+main: kit: entity: api: {
+
+  alias: field: {}
+
+  fields: {
+    developer: {
+      h: "Developer"
+      n: "developer"
+      r: false
+      t: "`$STRING`"
+    }
+    version: {
+      h: "Version"
+      n: "version"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  name: "api"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api"
+          s: [
+            {
+              lit: "api"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

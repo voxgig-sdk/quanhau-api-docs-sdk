@@ -91,10 +91,12 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "developer",
+						"title": "Developer",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "version",
+						"title": "Version",
 						"type": "`$STRING`",
 					},
 				},
@@ -105,7 +107,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api",
@@ -114,14 +115,16 @@ func MakeConfig() map[string]any {
 										"lit": "api",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"api",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.data`",
 								},
-								"parts": []any{
-									"api",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},

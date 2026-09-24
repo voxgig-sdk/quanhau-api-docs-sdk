@@ -113,10 +113,12 @@ class QuanhauApiDocsConfig
           'fields' => [
             [
               'name' => 'developer',
+              'title' => 'Developer',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'version',
+              'title' => 'Version',
               'type' => '`$STRING`',
             ],
           ],
@@ -127,7 +129,6 @@ class QuanhauApiDocsConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api',
@@ -136,14 +137,16 @@ class QuanhauApiDocsConfig
                       'lit' => 'api',
                     ],
                   ],
-                  'select' => [],
+                  'parts' => [
+                    'api',
+                  ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.data`',
                   ],
-                  'parts' => [
-                    'api',
-                  ],
+                  'args' => [],
+                  'select' => [],
                 ],
               ],
             ],
