@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 QuanhauApiDocsUtility::setRegistrar(function (QuanhauApiDocsUtility $u): void {
     $u->clean = [QuanhauApiDocsClean::class, 'call'];
+    $u->clean_add = [QuanhauApiDocsClean::class, 'add'];
+    $u->clean_explain = [QuanhauApiDocsDone::class, 'clean_explain'];
     $u->done = [QuanhauApiDocsDone::class, 'call'];
     $u->make_error = [QuanhauApiDocsMakeError::class, 'call'];
     $u->feature_add = [QuanhauApiDocsFeatureAdd::class, 'call'];

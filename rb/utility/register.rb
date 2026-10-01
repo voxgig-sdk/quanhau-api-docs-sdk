@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 QuanhauApiDocsUtility.registrar = ->(u) {
   u.clean = QuanhauApiDocsUtilities::Clean
+  u.clean_add = QuanhauApiDocsUtilities::CleanAdd
+  u.clean_explain = QuanhauApiDocsUtilities::CleanExplain
   u.done = QuanhauApiDocsUtilities::Done
   u.make_error = QuanhauApiDocsUtilities::MakeError
   u.feature_add = QuanhauApiDocsUtilities::FeatureAdd
