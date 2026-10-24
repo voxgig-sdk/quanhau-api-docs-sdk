@@ -3,5 +3,12 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Production server",
+      "Successful response",
+      "This API documentation serves as a comprehensive guide for developers to understand and integrate with the services offered by QuanHau, a fullstack web developer. It includes detailed endpoints, request and response formats, and examples to facilitate ease of use for backend applications."
+    ]
+  }
 }
